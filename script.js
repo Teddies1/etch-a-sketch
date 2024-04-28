@@ -41,6 +41,7 @@ const applyRGB = () => {
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", (e) => {
             e.target.style.backgroundColor = randomColor();
+            
         });
     });
 }
