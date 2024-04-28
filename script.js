@@ -26,13 +26,17 @@ const applyHover = () => {
         box.addEventListener("mouseenter", (e) => {
             e.target.style.backgroundColor = "blue";
         });
-        // box.addEventListener("mouseleave", (e) =>{
-        //     e.target.style.backgroundColor = "white";
-        // })
-        
     });
 }
 
+const applyErase = () => {
+    var boxes = document.querySelectorAll(".box");
+    boxes.forEach((box) => {
+        box.addEventListener("mouseenter", (e) =>{
+            e.target.style.backgroundColor = "white";
+        })
+    });
+}
 const promptValue = () => {
     while (true){
         var number = prompt("Enter a grid size less than 50: ");
@@ -49,13 +53,23 @@ const etchSketch = () => {
     applyHover();
 }
 
-var button = document.querySelector("button");
-button.addEventListener("click", () => {
-    var container = document.querySelector(".div-container");
-    container.innerHTML = '';
-    console.log(container);
-    etchSketch();
+document.body.addEventListener("click", (e) => {
+    console.log(e.target.classList);
+    if (e.target.classList.contains("erase")){
+        applyErase();
+        console.log("erase");
+    }
+    else if (e.target.classList.contains("draw")){
+        applyHover();
+        console.log("draw");
+    }
+    else if (e.target.classList.contains("reset")){
+        var container = document.querySelector(".div-container");
+        container.innerHTML = '';
+        console.log("reset");
+        etchSketch();
+    }
+        
 });
-
 
 etchSketch();
