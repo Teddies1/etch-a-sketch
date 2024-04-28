@@ -1,4 +1,4 @@
-function createDivs(n){
+const createDivs = (n) => {
     var container = document.querySelector(".div-container");
     for (let i = 0; i < n; i++){
         var row = document.createElement("div");
@@ -21,5 +21,18 @@ function createDivs(n){
     }
 }
 
+const applyHover = () => {
+    var boxes = document.querySelectorAll(".box");
+    boxes.forEach((box) => {
+        box.addEventListener("mouseenter", (e) => {
+            e.target.style.backgroundColor = "blue";
+        })
+        // box.addEventListener("mouseleave", (e) =>{
+        //     e.target.style.backgroundColor = "white";
+        // })
+    })
+}
 
-createDivs(16);
+
+createDivs(16)
+applyHover();

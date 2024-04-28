@@ -8,4 +8,6 @@ body {
 
 .div-container {
     padding: 32px;
+    max-width: 1024px;
+    max-height: 1024px;
 }
