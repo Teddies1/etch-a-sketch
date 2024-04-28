@@ -41,7 +41,6 @@ const applyRGB = () => {
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", (e) => {
             e.target.style.backgroundColor = randomColor();
-            
         });
     });
 }
@@ -62,7 +61,6 @@ const promptValue = () => {
         }   
     }
 }
-
 
 const etchSketch = () => {
     var gridSize = promptValue();
