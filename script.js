@@ -24,7 +24,7 @@ const applyHover = () => {
     var boxes = document.querySelectorAll(".box");
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", (e) => {
-            e.target.style.backgroundColor = "blue";
+            e.target.style.backgroundColor = "black";
         });
     });
 }
@@ -57,16 +57,13 @@ document.body.addEventListener("click", (e) => {
     console.log(e.target.classList);
     if (e.target.classList.contains("erase")){
         applyErase();
-        console.log("erase");
     }
     else if (e.target.classList.contains("draw")){
         applyHover();
-        console.log("draw");
     }
-    else if (e.target.classList.contains("reset")){
+    else if (e.target.id.contains("reset")){
         var container = document.querySelector(".div-container");
         container.innerHTML = '';
-        console.log("reset");
         etchSketch();
     }
         
