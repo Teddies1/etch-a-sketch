@@ -20,11 +20,27 @@ const createDivs = (n) => {
     }
 }
 
-const applyHover = () => {
+const randomColor = () => {
+    var red   = (Math.floor(Math.random() * 256));
+    var green = (Math.floor(Math.random() * 256));
+    var blue  = (Math.floor(Math.random() * 256)); 
+    return 'rgb(' + red + ',' + green + ',' + blue +')';
+} 
+
+const applyBlack = () => {
     var boxes = document.querySelectorAll(".box");
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", (e) => {
             e.target.style.backgroundColor = "black";
+        });
+    });
+}
+
+const applyRGB = () => {
+    var boxes = document.querySelectorAll(".box");
+    boxes.forEach((box) => {
+        box.addEventListener("mouseenter", (e) => {
+            e.target.style.backgroundColor = randomColor();
         });
     });
 }
@@ -50,7 +66,7 @@ const promptValue = () => {
 const etchSketch = () => {
     var gridSize = promptValue();
     createDivs(gridSize);
-    applyHover();
+    applyBlack();
 }
 
 document.body.addEventListener("click", (e) => {
@@ -59,14 +75,16 @@ document.body.addEventListener("click", (e) => {
         applyErase();
     }
     else if (e.target.classList.contains("draw")){
-        applyHover();
+        applyBlack();
     }
-    else if (e.target.id.contains("reset")){
+    else if (e.target.classList.contains("reset")){
         var container = document.querySelector(".div-container");
         container.innerHTML = '';
         etchSketch();
     }
-        
+    else if (e.target.classList.contains("rgb")){
+        applyRGB();
+    }
 });
 
 etchSketch();
